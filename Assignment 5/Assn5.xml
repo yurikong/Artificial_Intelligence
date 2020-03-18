@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BIF VERSION="0.3"  xmlns="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3 http://www.cs.ubc.ca/labs/lci/fopi/ve/XMLBIFv0_3/XMLBIFv0_3.xsd">
+<NETWORK>
+<NAME>Untitled</NAME>
+<PROPERTY>detailed = </PROPERTY>
+<PROPERTY>short = </PROPERTY>
+
+<VARIABLE TYPE="nature">
+	<NAME>visit to Asia?</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7232.380859375, 5077.28271484375)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>tuberculosis?</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7145.55322265625, 5177.70849609375)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>either tuberculosis or lung cancer?</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7271.10009765625, 5277.49853515625)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>positive X-ray?</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7182.38427734375, 5377.2978515625)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>lung cancer?</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7395.89990234375, 5182.52392578125)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>smoking?</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7523.00830078125, 5078.06787109375)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>bronchitis?</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7625.81640625, 5175.18701171875)</PROPERTY>
+</VARIABLE>
+
+<VARIABLE TYPE="nature">
+	<NAME>dyspnoea?</NAME>
+	<OUTCOME>T</OUTCOME>
+	<OUTCOME>F</OUTCOME>
+	<PROPERTY>position = (7534.1669921875, 5368.330078125)</PROPERTY>
+</VARIABLE>
+
+<DEFINITION>
+	<FOR>visit to Asia?</FOR>
+	<TABLE>0.01 0.99</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>tuberculosis?</FOR>
+	<GIVEN>visit to Asia?</GIVEN>
+	<TABLE>0.05 0.95 0.01 0.99</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>either tuberculosis or lung cancer?</FOR>
+	<GIVEN>tuberculosis?</GIVEN>
+	<GIVEN>lung cancer?</GIVEN>
+	<TABLE>1.0 0.0 1.0 0.0 1.0 0.0 0.0 1.0</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>positive X-ray?</FOR>
+	<GIVEN>either tuberculosis or lung cancer?</GIVEN>
+	<TABLE>0.98 0.02 0.05 0.95</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>lung cancer?</FOR>
+	<GIVEN>smoking?</GIVEN>
+	<TABLE>0.1 0.9 0.01 0.99</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>smoking?</FOR>
+	<TABLE>0.5 0.5</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>bronchitis?</FOR>
+	<GIVEN>smoking?</GIVEN>
+	<TABLE>0.6 0.4 0.3 0.7</TABLE>
+</DEFINITION>
+
+<DEFINITION>
+	<FOR>dyspnoea?</FOR>
+	<GIVEN>either tuberculosis or lung cancer?</GIVEN>
+	<GIVEN>bronchitis?</GIVEN>
+	<TABLE>0.9 0.1 0.7 0.3 0.8 0.2 0.1 0.9</TABLE>
+</DEFINITION>
+</NETWORK>
+</BIF>

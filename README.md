@@ -1,2 +1,3 @@
 # Artificial_Intelligence
-CSULB CECS_451
+###### project descriptions are in pdf's
+##### group project contributor: Eric Lawson
